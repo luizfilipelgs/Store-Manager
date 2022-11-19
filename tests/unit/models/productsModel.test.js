@@ -12,6 +12,7 @@ const productsModel = require('../../../src/models/products.model')
   
     sinon.stub(connection, 'execute').resolves([mock.products]);
     const result = await productsModel.getAllProducts();
+   
     expect(result).to.be.deep.equal(mock.products);
   });
   

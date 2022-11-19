@@ -8,11 +8,14 @@ const products = {
 };
 
 const productID = {
-    "id": 1,
-    "name": "Martelo de Thor"
+  id: 1,
+  name: "Martelo de Thor"
 };
+
+const notProductID = { type: 'NOT_FOUND', message: 'Product not found' };
 
 module.exports = {
   products,
   productID,
+  notProductID,
 }
