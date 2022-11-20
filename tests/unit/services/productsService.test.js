@@ -5,10 +5,10 @@ const productsService = require('../../../src/services/products.service');
 const productsModel = require('../../../src/models/products.model');
 const mock = require("./mocks/productsService.mock");
 
- describe('Teste da camada products Services', function () {
+describe('Teste da camada products Services', function () {
   afterEach(sinon.restore);
 
-  it('verifica se a função getAllProducts retorna: { type, message }', async function () {
+  it('verifica se o service getAllProducts retorna: { type, message }', async function () {
   
     sinon.stub(productsModel, 'getAllProducts').resolves(mock.products);
     const result = await productsService.getAllProducts();
@@ -23,7 +23,7 @@ const mock = require("./mocks/productsService.mock");
     //expect(result).to.deep.equal(mock.products);
   });
    
-  it('verifica se a função getProductID retorna o produto em caso de sucesso', async function () {
+  it('verifica se o service getProductID retorna o produto em caso de sucesso', async function () {
   
     sinon.stub(productsModel, 'getProductID').resolves(mock.productID);
 
@@ -32,14 +32,12 @@ const mock = require("./mocks/productsService.mock");
     expect(result).to.be.deep.equal(mock.productID);
   });
   
-   it('verifica se a função getProductID retorna o a mensagem de not found caso não encontre o produto pelo ID', async function () {
+  it('verifica se o service getProductID retorna o a mensagem de not found caso não encontre o produto pelo ID', async function () {
   
     sinon.stub(productsModel, 'getProductID').resolves(mock.notProductID);
-    console.log(mock.notProductID);
-
+    
     const result = await productsModel.getProductID(155);
-    console.log(result);
-     
+         
     expect(result).to.be.deep.equal(mock.notProductID);
   });
   
