@@ -13,7 +13,6 @@ const getProductID = async (id) => {
 const addNewProduct = async (name) => {
   const [{ insertId }] = await conn.execute('INSERT INTO StoreManager.products (name) VALUES (?)',
     [name]);
-  console.log(insertId);
   return insertId;
 };
 
