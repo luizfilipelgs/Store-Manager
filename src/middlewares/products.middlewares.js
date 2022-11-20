@@ -8,8 +8,7 @@ const checkName = Joi.object({
 const validateName = async (req, res, next) => {
   const { name } = req.body;
   const { error } = checkName.validate({ name });
-  //const { details } = error;
- 
+
   if (error) {
     return res.status(status[error.details[0].type]).json({ message: error.details[0].message });
   }
