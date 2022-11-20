@@ -11,7 +11,7 @@ const getProductID = async (id) => {
 };
 
 const addNewProduct = async () => {
-  const []
+  
 };
 
 module.exports = {

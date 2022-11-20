@@ -11,6 +11,9 @@ const getProductID = async (id) => {
   return { type: null, message: product };
 };
 
+const addNewProduct = async () => {
+  
+};
 module.exports = {
   getAllProducts,
   getProductID,
