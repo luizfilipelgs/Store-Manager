@@ -11,10 +11,16 @@ const getProductID = async (id) => {
   return { type: null, message: product };
 };
 
-const addNewProduct = async () => {
-  
+const addNewProduct = async (name) => {
+  const id = await productsModel.addNewProduct(name);
+  const newProduct = await productsModel.getProductID(id);
+
+  if (!newProduct) return { type: 'NOT_CREATED', message: 'Product not Created' };
+  return { type: null, message: newProduct };
 };
+
 module.exports = {
   getAllProducts,
   getProductID,
+  addNewProduct,
 };
