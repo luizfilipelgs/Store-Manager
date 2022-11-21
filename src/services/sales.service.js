@@ -11,10 +11,9 @@ const getProductID = async (id) => {
   return { type: null, message: product };
 }; */
 
-const registreSales = async (salesArray) => {
-  const id = await salesModel.registreSales(salesArray);
-  const newProduct = await salesModel.getProductID(id);
-
+const registreSales = async (sales) => {
+  const registerSale = await salesModel.registreSales(sales);
+  
   if (!newProduct) return { type: 'NOT_CREATED', message: 'Product not Created' };
   return { type: null, message: newProduct };
 };
