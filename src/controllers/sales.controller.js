@@ -13,15 +13,15 @@ const getSaleID = async (req, res) => {
   return res.status(200).json(message);
 }; */
 
-const addNewSales = async (req, res) => {
+const registreSales = async (req, res) => {
   const salesArray = req.body;
-  const { type, message } = await salesService.addNewSales(salesArray);
+  const { type, message } = await salesService.registreSales(salesArray);
   if (type) return res.status(type).json({ message });
   return res.status(201).json(message);
 };
 
 module.exports = {
-  getAllSales,
-  getSaleID,
-  addNewSales,
+  /* getAllSales,
+  getSaleID, */
+  registreSales,
 };
