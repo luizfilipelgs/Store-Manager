@@ -40,19 +40,19 @@ describe('Teste da camada products Controller', function () {
     expect(res.status).to.have.been.calledWith(200);
   });
   
-  /* it('verifica se o controller getProductID retorna status 404 e a mensagem de not found caso não encontre o produto pelo ID ', async function () {
+  it.skip('verifica se o controller getProductID retorna status 404 e a mensagem de not found caso não encontre o produto pelo ID ', async function () {
   
     sinon.stub(productsService, 'getProductID').resolves(mock.notProductID);
 
-    const req = { params: { id:100 } };
+    const req = { params: { id:999 } };
     const res = {};
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
 
     await productsController.getProductID(req, res);
-    
+    console.log(res.json);
+    console.log(mock.notProductID);
     expect(res.status).to.have.been.calledWith(404);
     expect(res.json).to.have.been.calledWith(mock.notProductID);
-  }); */
-  
+  });
 });
