@@ -12,10 +12,10 @@ const getProductID = async (id) => {
 }; */
 
 const registreSales = async (sales) => {
-  const registerSale = await salesModel.registreSales(sales);
+  const registeredSale = await salesModel.registreSales(sales);
   
-  if (!newProduct) return { type: 'NOT_CREATED', message: 'Product not Created' };
-  return { type: null, message: newProduct };
+  if (!registeredSale) return { type: 'NOT_REGISTERED', message: 'Erro in Registre' };
+  return { type: null, message: registeredSale };
 };
 
 
