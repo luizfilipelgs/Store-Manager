@@ -12,12 +12,23 @@ const getProductID = async (id) => {
 }; */
 
 const registreSales = async (sales) => {
-  const registeredSale = await salesModel.registreSales(sales);
-  
-  if (!registeredSale) return { type: 'NOT_REGISTERED', message: 'Erro in Registre' };
-  return { type: null, message: registeredSale };
-};
+  const idSale = await salesModel.addSales();
+  // const registeredSale = await salesModel.registreSales(sales);
 
+  const registeredSale = sales.map(({ productId, quantity }) => salesModel
+    .registreSales(idSale, productId, quantity));
+  
+  await Promise.all(registeredSale);
+
+  const result = {
+    id: idSale,
+    itemsSold: sales,
+  };
+  
+  console.log(result);
+  if (!registeredSale) return { type: 'NOT_REGISTERED', message: 'Erro in Registre' };
+  return { type: null, message: result };
+};
 
 module.exports = {
   /* getAllProducts,

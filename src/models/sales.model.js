@@ -14,32 +14,19 @@ const addSales = async () => {
   const [{ insertId }] = await conn.execute(
     'INSERT INTO StoreManager.sales (date) VALUES (default)',
   );
-  console.log(insertId);
   return insertId;
 };
 
-const registreSales = async (sales) => {
-  const idSale = await addSales();
-
-  const insertedSales = sales.map(({ productId, quantity }) => {
-    const [result] = await conn.execute(
-      'INSERT INTO StoreManager.sales_products (sale_id, product_id, quantity) VALUES (default)',
-      [idSale, productId, quantity],
-    );
-    return result
-  });
-
-  await Promise.all(insertedSales);
-
-  return {
-    id: idSale,
-    itemsSold: sales,
-  }
-
+const registreSales = async (idSale, productId, quantity) => {
+  await conn.execute(
+    'INSERT INTO StoreManager.sales_products (sale_id, product_id, quantity) VALUES (?,?,?)',
+    [idSale, productId, quantity],
+  );
 };
 
 module.exports = {
   /* getAllProducts,
   getProductID, */
+  addSales,
   registreSales,
 };

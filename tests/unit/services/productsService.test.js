@@ -8,18 +8,17 @@ const mock = require("./mocks/productsService.mock");
 describe('Teste da camada products Services', function () {
   afterEach(sinon.restore);
 
-  it('verifica se o service getAllProducts retorna: { type, message }', async function () {
+  it.only('verifica se o service getAllProducts retorna: { type, message }', async function () {
   
     sinon.stub(productsModel, 'getAllProducts').resolves(mock.products);
     const result = await productsService.getAllProducts();
-    //console.log(result);
-    //console.log(mock.products);
-    //console.log(mock.products.message);
-    //console.log(result.message.message);
-    //console.log(result);
-
-    expect(result.type).to.deep.equal(mock.products.type);
-    expect(result.message.message).to.deep.equal(mock.products.message);
+    
+    console.log(mock.products);
+    console.log('-----------------------------------');
+    console.log(result);
+   
+    expect(result.type).to.deep.equal(null);
+    expect(result.message).to.deep.equal(mock.products);
     //expect(result).to.deep.equal(mock.products);
   });
    
