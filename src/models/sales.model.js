@@ -1,6 +1,6 @@
 const conn = require('./db/connections');
 
-/* const getAllProducts = async () => {
+/* const getAllSales = async () => {
   const [result] = await conn.execute('SELECT * FROM StoreManager.products ORDER BY id');
   return result;
 };

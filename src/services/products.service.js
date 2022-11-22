@@ -2,6 +2,7 @@ const productsModel = require('../models/products.model');
 
 const getAllProducts = async () => {
   const allProducts = await productsModel.getAllProducts();
+  if (!allProducts) return { type: 'NOT_FOUND', message: 'Product not found' };
   return { type: null, message: allProducts };
 };
 

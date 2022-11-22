@@ -19,20 +19,6 @@
     "tests": []
   },
   {
-    "_id": "e0b65589-4c86-43d7-a55a-45ea6e804245",
-    "colId": "history",
-    "containerId": "",
-    "name": "http://localhost:3000/2",
-    "url": "http://localhost:3000/2",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2022-11-21T17:39:55.595Z",
-    "modified": "2022-11-21T17:39:55.595Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
     "_id": "407b0d3f-994f-4b40-bcd6-db061cc60457",
     "colId": "history",
     "containerId": "",
