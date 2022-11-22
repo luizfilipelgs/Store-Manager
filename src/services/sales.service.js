@@ -1,19 +1,18 @@
 const salesModel = require('../models/sales.model');
 
-/* const getAllProducts = async () => {
-  const allProducts = await productsModel.getAllProducts();
-  return { type: null, message: allProducts };
+const getAllSales = async () => {
+  const allSales = await salesModel.getAllSales();
+  return { type: null, message: allSales };
 };
 
-const getProductID = async (id) => {
-  const product = await productsModel.getProductID(id);
-  if (!product) return { type: 'NOT_FOUND', message: 'Product not found' };
-  return { type: null, message: product };
-}; */
+const getSaleID = async (id) => {
+  const SaleId = await salesModel.getSaleID(id);
+  if (!SaleId) return { type: 'NOT_FOUND', message: 'Sale not found' };
+  return { type: null, message: SaleId };
+};
 
 const registreSales = async (sales) => {
   const idSale = await salesModel.addSales();
-  // const registeredSale = await salesModel.registreSales(sales);
 
   const registeredSale = sales.map(({ productId, quantity }) => salesModel
     .registreSales(idSale, productId, quantity));
@@ -30,7 +29,7 @@ const registreSales = async (sales) => {
 };
 
 module.exports = {
-  /* getAllProducts,
-  getProductID, */
+  getAllSales,
+  getSaleID,
   registreSales,
 };
