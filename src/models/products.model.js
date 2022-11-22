@@ -16,8 +16,15 @@ const addNewProduct = async (name) => {
   return insertId;
 };
 
+const deleteProduct = async (id) => {
+  const [{ affectedRows }] = await conn.execute(`
+  DELETE FROM StoreManager.products WHERE id = ?`, [id]);
+  return affectedRows;
+};
+
 module.exports = {
   getAllProducts,
   getProductID,
   addNewProduct,
+  deleteProduct,
 };

@@ -16,7 +16,7 @@ const getSaleID = async (req, res) => {
 const registreSales = async (req, res) => {
   const salesArray = req.body;
   const { type, message } = await salesService.registreSales(salesArray);
-  if (type) return res.status(type).json({ message });
+  if (type) return res.status(404).json({ message });
   return res.status(201).json(message);
 };
 
