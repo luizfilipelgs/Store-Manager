@@ -21,7 +21,7 @@ const registreSales = async (req, res) => {
 };
 
 module.exports = {
-  /* getAllSales,
-  getSaleID, */
+  getAllSales,
+  getSaleID,
   registreSales,
 };
