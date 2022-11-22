@@ -1,14 +1,30 @@
 const conn = require('./db/connections');
 
-/* const getAllSales = async () => {
-  const [result] = await conn.execute('SELECT * FROM StoreManager.products ORDER BY id');
+const getAllSales = async () => {
+  const [result] = await conn.execute(`
+    SELECT sale_id as saleId,
+    date,
+    product_id as productId,
+    quantity
+    FROM sales_products as SP
+    INNER JOIN sales as S
+    ON SP.sale_id = S.id
+    ORDER BY SP.sale_id`);
   return result;
 };
 
-const getProductID = async (id) => {
-  const [[result]] = await conn.execute('SELECT * FROM StoreManager.products WHERE id = ?', [id]);
+const getSaleID = async (id) => {
+  const [result] = await conn.execute(`
+    SELECT date,
+    product_id as productId,
+    quantity
+    FROM sales_products as SP
+    INNER JOIN sales as S
+    ON SP.sale_id = S.id
+    WHERE sale_id = ?
+    ORDER BY SP.sale_id, SP.product_id`, [id]);
   return result;
-}; */
+};
 
 const addSales = async () => {
   const [{ insertId }] = await conn.execute(
@@ -25,8 +41,8 @@ const registreSales = async (idSale, productId, quantity) => {
 };
 
 module.exports = {
-  /* getAllProducts,
-  getProductID, */
+  getAllSales,
+  getSaleID,
   addSales,
   registreSales,
 };

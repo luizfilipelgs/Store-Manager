@@ -25,7 +25,6 @@ const registreSales = async (sales) => {
     itemsSold: sales,
   };
   
-  console.log(result);
   if (!registeredSale) return { type: 'NOT_REGISTERED', message: 'Erro in Registre' };
   return { type: null, message: result };
 };
