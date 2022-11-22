@@ -50,8 +50,8 @@ describe('Teste da camada products Controller', function () {
     res.json = sinon.stub().returns();
 
     await productsController.getProductID(req, res);
-    console.log(res.json);
-    console.log(mock.notProductID);
+    /* console.log(res.json);
+    console.log(mock.notProductID); */
     expect(res.status).to.have.been.calledWith(404);
     expect(res.json).to.have.been.calledWith(mock.notProductID);
   });
