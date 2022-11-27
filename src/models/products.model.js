@@ -17,16 +17,15 @@ const addNewProduct = async (name) => {
 };
 
 const deleteProduct = async (id) => {
-  const [{ affectedRows }] = await conn.execute(`
+  const [result] = await conn.execute(`
   DELETE FROM StoreManager.products WHERE id = ?`, [id]);
-  return affectedRows;
+  return result.affectedRows;
 };
 
-const UpdateProduct = async (name, id) => {
-  const [{ affectedRows }] = await conn.execute(`
+const updateProduct = async (name, id) => {
+  const [result] = await conn.execute(`
   UPDATE products SET name = ? WHERE id = ?`, [name, id]);
-  console.log(affectedRows);
-  return affectedRows;
+  return result.affectedRows;
 };
 
 module.exports = {
@@ -34,5 +33,5 @@ module.exports = {
   getProductID,
   addNewProduct,
   deleteProduct,
-  UpdateProduct,
+  updateProduct,
 };
