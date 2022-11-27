@@ -22,9 +22,17 @@ const deleteProduct = async (id) => {
   return affectedRows;
 };
 
+const UpdateProduct = async (name, id) => {
+  const [{ affectedRows }] = await conn.execute(`
+  UPDATE products SET name = ? WHERE id = ?`, [name, id]);
+  console.log(affectedRows);
+  return affectedRows;
+};
+
 module.exports = {
   getAllProducts,
   getProductID,
   addNewProduct,
   deleteProduct,
+  UpdateProduct,
 };
