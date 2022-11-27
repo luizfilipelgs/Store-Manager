@@ -29,8 +29,29 @@ const notProductID = {
   message: 'Product not found',
 };
 
+const productAdd = {
+  type: null,
+  message: {
+    "id": 4,
+    "name": "Manopla"
+  },
+};
+
+const productEdit = {
+  type: null,
+  message: {
+    "id": 1,
+    "name": "Manopla"
+  },
+};
+
+const productNotCreated = { type: 'NOT_CREATED', message: 'Product not Created' }
+
 module.exports = {
   products,
   productID,
   notProductID,
+  productAdd,
+  productEdit,
+  productNotCreated,
 }
