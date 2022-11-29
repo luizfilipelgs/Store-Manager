@@ -40,9 +40,14 @@ const registreSales = async (idSale, productId, quantity) => {
   );
 };
 
+const deleteSale = async (id) => {
+  await conn.execute('DELETE FROM sales WHERE id = ?', [id]);
+};
+
 module.exports = {
   getAllSales,
   getSaleID,
   addSales,
   registreSales,
+  deleteSale,
 };
