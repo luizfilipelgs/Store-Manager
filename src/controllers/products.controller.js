@@ -1,3 +1,4 @@
+const { query } = require('../models/db/connections');
 const productService = require('../services/products.service');
 
 const getAllProducts = async (_req, res) => {
@@ -37,10 +38,18 @@ const updateProduct = async (req, res) => {
   return res.status(200).json(message);
 };
 
+const searchProduct = async (req, res) => {
+  const { q } = req.query;
+  const { type, message } = await productService.searchProduct(q);
+  if (type) return res.status(404).json({ message });
+  return res.status(200).json(message);
+};
+
 module.exports = {
   getAllProducts,
   getProductID,
   addNewProduct,
   deleteProduct,
   updateProduct,
+  searchProduct,
 };

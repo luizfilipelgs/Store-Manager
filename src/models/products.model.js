@@ -28,10 +28,18 @@ const updateProduct = async (name, id) => {
   return result.affectedRows;
 };
 
+const searchProduct = async (name) => {
+  const search = `%${name}%`;
+  const [result] = await conn.execute(`
+  SELECT * FROM products WHERE name LIKE ?`, [search]);
+  return result;
+};
+
 module.exports = {
   getAllProducts,
   getProductID,
   addNewProduct,
   deleteProduct,
   updateProduct,
+  searchProduct,
 };
