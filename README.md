@@ -3,13 +3,18 @@
 
 ## O que foi desenvolvido 👨‍💻 
 
-Foi feito uma API RESTful de um sistema de gerenciamento de vendas no formato dropshipping em que será possível criar, visualizar, deletar e atualizar produtos e vendas, ela foi construída utilizando a arquitetura MSC (model-service-controller).
+Foi feito uma API RESTful de um sistema de gerenciamento de vendas no formato dropshipping em que será possível criar, visualizar, deletar e atualizar produtos e vendas, ela foi construída utilizando a arquitetura MSC (model-service-controller) para maior facilidade de manutenção e escalabilidade do projeto.
+
+Também foi desenvolvidos testes unitários afim de tornar a aplicação mais segura.
 
 Foi utilizado:
-- Node, 
-- Express,
-- Docker
-- MySQL
+
+ - Node,
+ - Express,
+ - Docker
+ - MySQL
+ - Mocha, Sinon, chai, Sinon-chai
+ - Joi
 
 
 ## Orientações
