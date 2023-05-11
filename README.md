@@ -193,7 +193,7 @@ A tabela `sales_products`, é a tabela que faz o relacionamento `N:N` entre `pro
   <br />
 </details>
 
-
+<!--
 ## Requisitos Obrigatórios
 
 ## 01 - Crie endpoints para listar produtos
@@ -410,4 +410,4 @@ A tabela `sales_products`, é a tabela que faz o relacionamento `N:N` entre `pro
 - Seus testes da `model` devem fazer mock do banco de dados obrigatoriamente;
 - Opcionalmente você pode parar o serviço do `MYSQL` em sua máquina. Para rodar seus teste utilize `npm run test:mocha`;
 - Antes de executar os testes da Trybe, seus testes não devem conter erros.
-
+-->
